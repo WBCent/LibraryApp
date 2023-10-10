@@ -1,4 +1,6 @@
+using LibraryApp.Data;
 using Microsoft.AspNetCore.Http.Headers;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Net.Http.Headers;
 
 
@@ -6,6 +8,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+//Adds database
+builder.Services.AddDbContext<DataContext>(opt =>
+{
+    opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
+    
 
 // ↓ Add the following lines: ↓
 builder.Services.AddSpaStaticFiles(configuration => {
