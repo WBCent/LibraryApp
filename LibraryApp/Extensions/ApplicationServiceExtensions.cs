@@ -20,6 +20,7 @@ namespace LibraryApp.Extensions
             {
                 opt.UseSqlite(config.GetConnectionString("DefaultConnection"));
             });
+            
             //Easier to test against interfaces
             Services.AddScoped<ITokenService, TokenService>();
             return services;

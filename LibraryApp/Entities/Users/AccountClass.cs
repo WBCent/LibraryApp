@@ -8,5 +8,9 @@ namespace LibraryApp.Entities.Users
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
         protected internal string role;
+        
+        
+        
+        
     }
 }

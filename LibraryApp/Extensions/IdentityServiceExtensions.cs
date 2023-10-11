@@ -1,3 +1,7 @@
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+
 namespace LibraryApp.Extensions;
 
 public class IdentityServiceExtensions
@@ -14,6 +18,6 @@ public class IdentityServiceExtensions
                 ValidateAudience = false
             };
         });
-        return services
+        return services;
     }
 }

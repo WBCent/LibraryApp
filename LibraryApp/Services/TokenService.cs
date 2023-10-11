@@ -9,7 +9,7 @@ namespace LibraryApp.Services;
 
 public class TokenService : ITokenService
 {
-    public string CreateToken(User user)
+    public TokenService(User user)
     {
 
         private readonly SymmetricSecurityKey _key;
@@ -17,7 +17,7 @@ public class TokenService : ITokenService
         public TokenService(IConfiguration config)
         {
             //Takes a byte array so we need to encode our config
-            _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["TokenKey"]))
+            _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["TokenKey"]));
         }
 
 
@@ -25,16 +25,16 @@ public class TokenService : ITokenService
         {
             var claims = new List<Claim>
             {
-                new Claim(JwtRegisteredClaimNames.NameId, user.username);
+                new Claim(JwtRegisteredClaimNames.NameId, user.username)
             };
 
-            var creds = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);
+            var cred = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
                 Expires = DateTime.Now.AddDays(7),
-                SigningCredentials = creds
+                SigningCredentials = cred
             };
 
             var tokenHandler = new JwtSecurityTokenHandler();
