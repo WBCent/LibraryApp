@@ -8,6 +8,7 @@ namespace LibraryApp.DTOs
     {
         [Required]
         public string Username { get; set; }
+        //Can also use Regex as well for validation.
         [Required]
         public string Password { get; set; }
     }

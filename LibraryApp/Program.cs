@@ -1,6 +1,12 @@
+using System.Text;
 using LibraryApp.Data;
+using LibraryApp.Extensions;
+using LibraryApp.Interfaces;
+using LibraryApp.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http.Headers;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.Net.Http.Headers;
 
 
@@ -8,12 +14,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-//Adds database
-builder.Services.AddDbContext<DataContext>(opt =>
-{
-    opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
-});
-    
+
+builder.Services.AddApplicationServices(builder.Configuration);
+builder.Services.AddIdentityServices(builder.Configuration);
+
 
 // ↓ Add the following lines: ↓
 builder.Services.AddSpaStaticFiles(configuration => {
@@ -31,12 +35,13 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
-app.UseAuthorization();
+app.UseAuthentication(); //Checks if you have a valid token
+app.UseAuthorization(); //Checks if the token allows you to do the thing
 
 app.MapControllerRoute(
     name: "default",
