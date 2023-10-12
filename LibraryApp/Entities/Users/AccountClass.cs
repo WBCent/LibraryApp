@@ -1,16 +1,12 @@
 
+using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Identity;
+
 namespace LibraryApp.Entities.Users
 {
-    public class User
+    public class User : IdentityUser<int>
     {
-        protected internal string user_id;
-        protected internal string username;
-        public byte[] PasswordHash { get; set; }
-        public byte[] PasswordSalt { get; set; }
-        protected internal string role;
-        
-        
-        
-        
+        //ICollection is a type of List, they are interchangeable
+        public ICollection<AppUserRole> UserRoles { get; set; }
     }
 }

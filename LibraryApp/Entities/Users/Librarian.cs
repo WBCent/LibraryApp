@@ -1,6 +1,6 @@
 namespace LibraryApp.Entities.Users
 {
-    class Librarian : User
+    public class Librarian : User
     {
         
     }
