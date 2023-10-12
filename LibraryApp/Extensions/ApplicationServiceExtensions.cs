@@ -3,10 +3,10 @@
 using System.Text;
 using LibraryApp.Data;
 using LibraryApp.Interfaces;
-using LibraryApp.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using LibraryApp.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace LibraryApp.Extensions
 {
@@ -16,13 +16,13 @@ namespace LibraryApp.Extensions
         public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config)
         {
             //Adds database
-            Services.AddDbContext<DataContext>(opt =>
+            services.AddDbContext<DataContext>(opt =>
             {
                 opt.UseSqlite(config.GetConnectionString("DefaultConnection"));
             });
             
             //Easier to test against interfaces
-            Services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<ITokenService, TokenService>();
             return services;
         }
     }

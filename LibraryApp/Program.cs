@@ -2,7 +2,6 @@ using System.Text;
 using LibraryApp.Data;
 using LibraryApp.Extensions;
 using LibraryApp.Interfaces;
-using LibraryApp.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http.Headers;
 using Microsoft.EntityFrameworkCore;

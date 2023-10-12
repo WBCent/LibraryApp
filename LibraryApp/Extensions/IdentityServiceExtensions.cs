@@ -4,11 +4,11 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace LibraryApp.Extensions;
 
-public class IdentityServiceExtensions
+public static class IdentityServiceExtensions
 {
     public static IServiceCollection AddIdentityServices(this IServiceCollection services, IConfiguration config)
     {
-        Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
         {
             options.TokenValidationParameters = new TokenValidationParameters()
             {

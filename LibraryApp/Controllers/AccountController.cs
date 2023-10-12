@@ -26,10 +26,12 @@ namespace LibraryApp.Controllers
         
         //Probably need to create two of these determining each role: one for librarian and one for Visitor
         [HttpPost("register")] //Post: api/Account/register
+        
         public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
         {
+            RegisterDto newUser = new RegisterDto();
             //if user already exists return username is taken
-            if (await UserExists(RegisterDto.Username)) return BadRequest("username is taken");
+            if (await UserExists(newUser.Username)) return BadRequest("username is taken");
             
             //Specified the keyword using here because specifying the using keyword deletes the class after usage. This is garbage collection.
             using var hmac = new HMACSHA512(); //hmacsha512 gives the salt key.
