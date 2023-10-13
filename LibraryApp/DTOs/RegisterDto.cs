@@ -11,6 +11,8 @@ namespace LibraryApp.DTOs
         //Can also use Regex as well for validation.
         [Required]
         public string Password { get; set; }
+        [Required]
+        public string role { get; set; }
     }
     
 }
