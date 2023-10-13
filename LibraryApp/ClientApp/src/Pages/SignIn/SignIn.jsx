@@ -38,6 +38,63 @@ const SignIn = () => {
         setSignUpValues({...signUpValues, [name] : value})
     }
     
+    const SubmitSignIn = async () => {
+        try {
+            let signIn = await fetch(
+                'https://localhost:5229/api/Account/login', {
+                    method: "POST",
+                    body: JSON.stringify(signInValues),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }
+            )
+            let signInResponse = await signIn.json();
+            console.log(signInResponse);
+            emptySignIn();
+        } catch(e) {
+            console.log(e)
+        }
+    }
+    
+    
+    
+    const SubmitSignUp = async () => {
+        try {
+            console.log("sending")
+            let signUp = await fetch(
+                'https://localhost:5229/api/Account/register', {
+                    method: "POST",
+                    body: JSON.stringify(signInValues),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }
+            )
+            let signUpResponse = await signUp.json();
+            console.log(signUpResponse);
+            empty();
+        } catch(e) {
+            console.log(e)
+        }
+    }
+    
+    const empty = () => {
+        setSignUpValues({
+            username: "",
+            role: "",
+            password: ""
+        })
+    }
+    
+    const emptySignIn = () => {
+        setSignInValues({
+            username: "",
+            password: ""
+        })
+    }
+    
+    
     
     
     return (
@@ -48,17 +105,19 @@ const SignIn = () => {
                 <TextField id="username" name="username" value={signInValues.username} onChange={handleInputChange} />
                 <FormLabel>Password</FormLabel>
                 <TextField id="password" name="password" value={signInValues.password} onChange={handleInputChange} />
+                <Button variant="contained" onClick={SubmitSignIn}>Login</Button>
                 <Divider />
                 <Typography variant="h5">Sign Up</Typography>
                 <FormLabel>Username</FormLabel>
-                <TextField id="SUusername" name="username" value={signInValues.username} onChange={handleInputChangeSignUp} />
+                <TextField id="SUusername" name="username" value={signUpValues.username} onChange={handleInputChangeSignUp} />
                 <FormLabel>What is your Role</FormLabel>
-                <RadioGroup defaultValue="visitor" name="role">
+                <RadioGroup defaultValue="visitor" name="role" value={signUpValues.role}>
                     <FormControlLabel control={<Radio />} label="Visitor" value="visitor" />
                     <FormControlLabel control={<Radio />} label="Librarian" value="librarian" />
                 </RadioGroup>
                 <FormLabel>Password</FormLabel>
-                <TextField id="SUpassword" name="password" value={signInValues.password} onChange={handleInputChangeSignUp} />
+                <TextField id="SUpassword" name="password" value={signUpValues.password} onChange={handleInputChangeSignUp} />
+                <Button variant="contained" onClick={SubmitSignUp}>Sign Up</Button>
             </Card>
         </Container>
     )

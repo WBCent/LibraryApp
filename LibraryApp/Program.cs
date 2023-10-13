@@ -1,11 +1,5 @@
-using System.Text;
-using LibraryApp.Data;
 using LibraryApp.Extensions;
-using LibraryApp.Interfaces;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http.Headers;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
 using Microsoft.Net.Http.Headers;
 
 
@@ -14,9 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddApplicationServices(builder.Configuration);
-builder.Services.AddIdentityServices(builder.Configuration);
-
+builder.Services.AddApplicationServicesDb(builder.Configuration);
+// builder.Services.AddApplicationServicesHttps(builder.Configuration);
 
 // ↓ Add the following lines: ↓
 builder.Services.AddSpaStaticFiles(configuration => {
