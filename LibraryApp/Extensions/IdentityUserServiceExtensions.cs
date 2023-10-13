@@ -1,3 +1,4 @@
+using LibraryApp.Controllers;
 using LibraryApp.Data;
 using LibraryApp.Entities.Users;
 using Microsoft.AspNetCore.Identity;
@@ -13,7 +14,9 @@ public static class IdentityUserServiceExtensions
             .AddRoles<Librarian>()
             .AddRoles<Visitor>()
             .AddEntityFrameworkStores<DataContext>()
-            .AddDefaultTokenProviders(); 
+            .AddDefaultTokenProviders();
+
+        services.AddScoped<RegisterController>();
         
         return services;
     }
