@@ -15,16 +15,8 @@ namespace LibraryApp.Data
         }
         
         public required DbSet<AppUser> User { get; set; }
-
-        // protected override void OnModelCreating(ModelBuilder builder)
-        // {
-        //     base.OnModelCreating(builder);
-        //     builder.Entity<AppUser>()
-        //         .HasMany(ur => ur.UserRoles)
-        //         .WithOne((u => u.User))
-        //         .HasForeignKey(ur => ur.userId)
-        //         .IsRequired();
-        // }
-
+        
+        public required DbSet<Book> Book { get; set; }
+        
     };
 }

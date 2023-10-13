@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddApplicationServicesDb(builder.Configuration);
-builder.Services.AddApplicationServicesHttps(builder.Configuration);
+// builder.Services.AddApplicationServicesHttps(builder.Configuration);
 
 // ↓ Add the following lines: ↓
 builder.Services.AddSpaStaticFiles(configuration => {

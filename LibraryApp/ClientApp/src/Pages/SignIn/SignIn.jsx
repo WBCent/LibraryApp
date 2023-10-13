@@ -41,7 +41,7 @@ const SignIn = () => {
     const SubmitSignIn = async () => {
         try {
             let signIn = await fetch(
-                'http://localhost:5229/api/Account/login', {
+                'https://localhost:5229/api/Account/login', {
                     method: "POST",
                     body: JSON.stringify(signInValues),
                     headers: {
@@ -51,16 +51,19 @@ const SignIn = () => {
             )
             let signInResponse = await signIn.json();
             console.log(signInResponse);
+            emptySignIn();
         } catch(e) {
             console.log(e)
         }
     }
     
+    
+    
     const SubmitSignUp = async () => {
         try {
             console.log("sending")
             let signUp = await fetch(
-                'http://localhost:5229/api/Account/register', {
+                'https://localhost:5229/api/Account/register', {
                     method: "POST",
                     body: JSON.stringify(signInValues),
                     headers: {
@@ -70,9 +73,25 @@ const SignIn = () => {
             )
             let signUpResponse = await signUp.json();
             console.log(signUpResponse);
+            empty();
         } catch(e) {
             console.log(e)
         }
+    }
+    
+    const empty = () => {
+        setSignUpValues({
+            username: "",
+            role: "",
+            password: ""
+        })
+    }
+    
+    const emptySignIn = () => {
+        setSignInValues({
+            username: "",
+            password: ""
+        })
     }
     
     
