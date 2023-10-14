@@ -16,5 +16,7 @@ namespace LibraryApp.DTOs
         public string Description;
         [Required]
         public bool Available;
+
+        public DateTime Date;
     }
 }

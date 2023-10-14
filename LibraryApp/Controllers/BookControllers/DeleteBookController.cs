@@ -35,8 +35,6 @@ namespace LibraryApp.Controllers.BookControllers
         {
             return await _context.Book.AnyAsync(x => x.ISBN == isbn);
         }
-
-
     }
 }
 

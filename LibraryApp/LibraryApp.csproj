@@ -17,6 +17,7 @@
       </PackageReference>
       <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.12" />
       <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.0.2" />
+      <PackageReference Include="xunit" Version="2.5.2" />
     </ItemGroup>
 
     <ItemGroup>
@@ -30,8 +31,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Interfaces\" />
-      <Folder Include="Services\" />
+      <Folder Include="Tests\ApiEndpoints.cs\" />
     </ItemGroup>
     
     <PropertyGroup>
