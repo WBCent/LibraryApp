@@ -6,6 +6,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LibraryApp.Controllers.BookControllers;
 
+//TODO: NEED TO ADD A DATE FIELD FOR WHEN IT SHOULD BE BACK
+//TODO: VIEW ALL BOOKS TAKEN OUT BY A SPECIFIC PERSON.
+//TODO: UNIT TESTING
 public class BorrowBookController : BaseApiController
 {
     private readonly DataContext _context;
