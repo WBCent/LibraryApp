@@ -24,8 +24,9 @@ public class BorrowBookController : BaseApiController
         if (entity != null)
         {
             entity.Borrower = borrowDto.Borrower;
+            entity.Date = borrowDto.Date.AddDays(3);
             await _context.SaveChangesAsync();
-            return Ok("Book Borrowed Successfully");
+            return Ok(entity.Date);
         }
         else
         {

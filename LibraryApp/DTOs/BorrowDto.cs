@@ -7,4 +7,6 @@ public class BorrowDto
     public string Borrower;
     [Key]
     public string ISBN;
+
+    public DateTime Date;
 }

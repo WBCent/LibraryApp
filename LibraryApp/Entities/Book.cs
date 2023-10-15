@@ -17,6 +17,8 @@ namespace LibraryApp.Entities
         [Required]
         public bool Available { get; set; }
         public string Borrower { get; set; }
+        
+        public DateTime Date { get; set; }
 
         public Book(string title, string author, string isbn, string genre, string description, bool available)
         {

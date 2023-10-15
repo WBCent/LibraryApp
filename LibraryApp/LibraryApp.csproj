@@ -9,14 +9,33 @@
     <ItemGroup>
       <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.12" />
       <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.12" />
+      <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="7.0.12" />
       <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="7.0.11" />
+      <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="7.0.12" />
+      <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.7.2" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.Cosmos" Version="7.0.12" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.12">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
       <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.12" />
+      <PackageReference Include="Microsoft.Extensions.Http" Version="7.0.0" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+      <PackageReference Include="NuGet.Frameworks" Version="6.7.0" />
       <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.0.2" />
+      <PackageReference Include="xunit" Version="2.5.2" />
+      <PackageReference Include="xunit.extensibility.core" Version="2.5.2" />
+      <PackageReference Include="xunit.extensibility.execution" Version="2.5.2" />
+      <PackageReference Include="xunit.runner.console" Version="2.5.2">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="xunit.runner.reporters" Version="2.5.2" />
+      <PackageReference Include="xunit.runner.utility" Version="2.5.2" />
+      <PackageReference Include="xunit.runner.visualstudio" Version="2.5.3">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
     </ItemGroup>
 
     <ItemGroup>
@@ -27,11 +46,6 @@
       <_ContentIncludedByDefault Remove="Views\Shared\_ValidationScriptsPartial.cshtml" />
       <_ContentIncludedByDefault Remove="Views\_ViewImports.cshtml" />
       <_ContentIncludedByDefault Remove="Views\_ViewStart.cshtml" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Interfaces\" />
-      <Folder Include="Services\" />
     </ItemGroup>
     
     <PropertyGroup>
@@ -53,5 +67,7 @@
             </ResolvedFileToPublish>
         </ItemGroup>
     </Target>
+    
+    
 
 </Project>
