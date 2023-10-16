@@ -2,47 +2,55 @@ using System.Text;
 using Xunit;
 using LibraryApp.Controllers.BookControllers;
 using Microsoft.AspNetCore.Mvc.Testing;
+using LibraryApp;
+using LibraryApp.Entities;
+using Microsoft.Build.Utilities;
+using Newtonsoft.Json;
+using Xunit.Abstractions;
+using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace LibraryApp.Tests.ApiEndpoints
 {
     //The IClassFixture<WebApplicationFactory<Program>> writing creates an in memory test server, allowing you to host your API in a test environment.
-    public class AddBookTests : IClassFixture<WebApplicationFactory<Program>>
+    public class AddBookTests : IClassFixture<Program>
     {
-        private readonly Type[] _types;
-        
-        private readonly HttpClient _client;
 
-        public AddBookTests(WebApplicationFactory<Type> factory)
+        private readonly ITestOutputHelper _logger;
+
+        public AddBookTests(ITestOutputHelper helper)
         {
-            _types = typeof(AddBookController).Assembly.GetTypes();
-            _client = factory.CreateClient();
+            _logger = helper;
         }
+        
 
         //Fact: marks a test method
         [Fact]
-        public async Task AddBook_ShouldAddBookToDB()
+        public async void AddBook_ShouldAddBookToDB()
         {
             //Arrange: where we arrange the values, and get things setup to run test
             //This is the expected value we want at the end of it.
-            Object expected = new
+            var expected = new
             {
                 Title = "Harry Potter",
                 Author = "Rowling",
-                ISBN = 123456,
+                ISBN = "gkjhg",
                 Genre = "Fantasy",
                 Description = "Wands",
                 Available = true
             };
 
-            var uri = new Uri("/api/AddBook/AddBook");
-            var body = new StringContent(expected.ToString(), Encoding.UTF8, "application/json");
+            await using var application = new WebApplicationFactory<Program>();
+            var _client = application.CreateClient();
+            var uri = new Uri("http://localhost:5229/api/AddBook/AddBook");
+            var body = new StringContent(JsonSerializer.Serialize(expected), Encoding.UTF8, "application/json");
 
             //Act: where you do the action that we are testing
             var response = await _client.PostAsync(uri, body);
-
+            var content = await response.Content.ReadAsStringAsync();
+            
             //Assertion: this is what I expect here is the actual value.
             response.EnsureSuccessStatusCode();
-            response.Content.Equals(body);
+            Assert.Contains("Book was Added", content);
         }
 
     }
