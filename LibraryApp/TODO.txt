@@ -1,0 +1,40 @@
+1. Add Chat Features
+2. Add the ability to add images to books
+3. Testing
+4. Notifications
+5. Hot, trending and new sections
+6. Search Functionality
+7. Reminders
+8. User logs and borrower details
+9. Relationship management: loyalty scheme
+10. Library fees: Add integration with stripe
+11. Chat feature to ask questions
+12. Email functionality
+13. Dedicated pages that are only accessible on certain days
+14. Group Chat: library groups w/end to end encryption
+15. Librarians can add their own books
+16. Book out certain times for using library rooms
+17. Cart where buyers can see a review of all the items that they have selected so far
+18. A feedback system for the products and sellers
+19. Search engine to go through the books
+20. Filters
+21. Account page with borrower history
+22. Book Recomendations that are tailored
+23. Book reviews and ratings
+24. Social integration: allow users to share their reading progress, favorite books, or reviews on social media platforms
+25. Events and workshops
+26. Facilitate the formation of book clubs
+27. Book Swap/Exchange: create a feature where users can list books they're willing to swap with others.
+28. Book of the Day/Week Recommendations: Highlight a specific book each day or week to encourage users to discover new titles.
+29. User-generated Content: Allow users to submit their own book recommendations, reviews, or reading lists.
+30. Allow offline book reservations
+31. Interactive tutorial on how to use the app;
+32. Library events calendar;
+33. Reading challenges
+34. Wishlists
+35. Personalised reading lists;
+36. Interactive Maps
+37. Blog area
+38. Reading goals
+39. Stats and analytics
+40. Book subscription.
