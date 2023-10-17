@@ -13,10 +13,8 @@ namespace LibraryApp.Data
         public DataContext(DbContextOptions options) : base(options)
         {
         }
-        
+
         public required DbSet<AppUser> User { get; set; }
-        
         public required DbSet<Book> Book { get; set; }
-        
     };
 }
