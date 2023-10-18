@@ -16,5 +16,7 @@ namespace LibraryApp.Data
 
         public required DbSet<AppUser> User { get; set; }
         public required DbSet<Book> Book { get; set; }
+        
+        public required DbSet<BlogPost> BlogPosts { get; set; }
     };
 }

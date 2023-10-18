@@ -56,9 +56,6 @@ const SignIn = () => {
             console.log(e)
         }
     }
-    
-    
-    
     const SubmitSignUp = async () => {
         try {
             console.log("sending")
@@ -93,9 +90,6 @@ const SignIn = () => {
             password: ""
         })
     }
-    
-    
-    
     
     return (
         <Container>

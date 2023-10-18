@@ -1,3 +1,7 @@
+Working On List:
+37. Blog area;
+
+To Do List
 1. Add Chat Features
 2. Add the ability to add images to books
 3. Testing
@@ -19,7 +23,7 @@
 19. Search engine to go through the books
 20. Filters
 21. Account page with borrower history
-22. Book Recomendations that are tailored
+22. Book Recommendations that are tailored
 23. Book reviews and ratings
 24. Social integration: allow users to share their reading progress, favorite books, or reviews on social media platforms
 25. Events and workshops
@@ -30,11 +34,10 @@
 30. Allow offline book reservations
 31. Interactive tutorial on how to use the app;
 32. Library events calendar;
-33. Reading challenges
-34. Wishlists
+33. Reading challenges;
+34. Wishlists;
 35. Personalised reading lists;
-36. Interactive Maps
-37. Blog area
-38. Reading goals
-39. Stats and analytics
-40. Book subscription.
+36. Interactive Maps;
+38. Reading goals;
+39. Stats and analytics;
+40. Book subscription;
