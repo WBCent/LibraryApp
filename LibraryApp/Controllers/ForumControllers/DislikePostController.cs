@@ -14,7 +14,7 @@ public class DislikePostController : BaseApiController
         _context = context;
     }
 
-    [HttpPut("/addLike")]
+    [HttpPut("/addDislike")]
     public async Task<ActionResult<int>> DislikePost(DislikePostDto dislikePostDto)
     {
 
