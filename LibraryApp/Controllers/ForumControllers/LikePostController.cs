@@ -2,7 +2,7 @@ using LibraryApp.Data;
 using LibraryApp.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
-namespace LibraryApp.Controllers.Forum;
+namespace LibraryApp.Controllers.ForumControllers;
 
 public class LikePostController : BaseApiController
 {
@@ -16,12 +16,12 @@ public class LikePostController : BaseApiController
     [HttpPut]
     public async Task<ActionResult<int>> LikePost(Like_DislikePostDto likeDislikePostDto)
     {
-        var entity = await _context.ForumPost.FindAsync(likeDislikePostDto.id);
+        var entity = await _context.ForumPosts.FindAsync(likeDislikePostDto.id);
 
         if (entity != null)
         {
             entity.Likes++;
-            await _context.ForumPost.AddAsync(entity);
+            await _context.ForumPosts.AddAsync(entity);
             await _context.SaveChangesAsync();
         }
         else

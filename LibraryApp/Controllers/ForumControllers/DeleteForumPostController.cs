@@ -1,10 +1,9 @@
 using LibraryApp.Data;
 using LibraryApp.DTOs;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace LibraryApp.Controllers.Forum;
+namespace LibraryApp.Controllers.ForumControllers;
 
 public class DeleteForumPostController : BaseApiController
 {
@@ -28,6 +27,6 @@ public class DeleteForumPostController : BaseApiController
 
     private async Task<bool> ForumPostExists(Guid id)
     {
-        return await _context.ForumPost.AnyAsync(x => x.ForumPost_ID == id);
+        return await _context.ForumPosts.AnyAsync(x => x.ForumPost_ID == id);
     }
 }

@@ -1,8 +1,10 @@
 using LibraryApp.Data;
+using LibraryApp.DTOs;
 using LibraryApp.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
-namespace LibraryApp.Controllers.Forum;
+namespace LibraryApp.Controllers.ForumControllers;
 
 public class RetrieveForumPostsController : BaseApiController
 {
@@ -14,15 +16,17 @@ public class RetrieveForumPostsController : BaseApiController
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<ForumPost>> RetrieveForumPosts()
+    public async Task<ActionResult<List<ForumPost>>> RetrieveForumPosts()
     {
+        var entities = await _context.ForumPosts.ToListAsync();
         return Ok(entities);
     }
 
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<ForumPost>> RetrieveForumPost()
+    public async Task<ActionResult<ForumPost>> RetrieveForumPost(SingleForumPostDto singleForumPostDto)
     {
+        var entity = await _context.ForumPosts.FindAsync(singleForumPostDto.id);
         return Ok(entity);
     }
 

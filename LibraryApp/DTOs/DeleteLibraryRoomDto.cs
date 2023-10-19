@@ -1,6 +1,6 @@
 namespace LibraryApp.DTOs;
 
-public class BookReview
+public class DeleteLibraryRoomDto
 {
     
 }

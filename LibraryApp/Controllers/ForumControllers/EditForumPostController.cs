@@ -2,7 +2,7 @@ using LibraryApp.Data;
 using LibraryApp.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
-namespace LibraryApp.Controllers.Forum;
+namespace LibraryApp.Controllers.ForumControllers;
 
 public class EditForumPostController : BaseApiController
 {
@@ -17,7 +17,7 @@ public class EditForumPostController : BaseApiController
     [HttpPut]
     public async Task<ActionResult<bool>> EditForumPost(EditForumPostDto editForumPostDto)
     {
-        var entity = _context.ForumPost.FindAsync(editForumPostDto.id);
+        var entity = await _context.ForumPosts.FindAsync(editForumPostDto.id);
 
         if (entity != null)
         {

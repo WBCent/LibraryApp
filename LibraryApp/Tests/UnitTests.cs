@@ -1,10 +1,10 @@
 using System.Text;
+using Microsoft.AspNetCore.Mvc.Testing;
 using Xunit;
 using Xunit.Abstractions;
 using JsonSerializer = System.Text.Json.JsonSerializer;
-using Microsoft.AspNetCore.Mvc.Testing;
 
-namespace TestProject1
+namespace LibraryApp.Tests
 {
     //The IClassFixture<WebApplicationFactory<Program>> writing creates an in memory test server, allowing you to host your API in a test environment.
     public class AddBookTests : IClassFixture<Program>

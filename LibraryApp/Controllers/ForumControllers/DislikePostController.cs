@@ -3,7 +3,7 @@ using LibraryApp.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace LibraryApp.Controllers.Forum;
+namespace LibraryApp.Controllers.ForumControllers;
 
 public class DislikePostController : BaseApiController
 {
@@ -19,11 +19,11 @@ public class DislikePostController : BaseApiController
     {
         if (await FindPost(likeDislikePostDto.id)) return BadRequest("There is no post with this ID");
 
-        var entity = await _context.ForumPost.FindAsync(likeDislikePostDto.id);
+        var entity = await _context.ForumPosts.FindAsync(likeDislikePostDto.id);
         if (entity != null)
         {
             entity.Dislikes++;
-            await _context.ForumPost.AddAsync(entity);
+            await _context.ForumPosts.AddAsync(entity);
             await _context.SaveChangesAsync();
         }
         else
@@ -34,8 +34,8 @@ public class DislikePostController : BaseApiController
         return Ok(entity.Dislikes);
     }
 
-    private async Task<ActionResult<bool>> FindPost(Guid id)
+    private async Task<bool> FindPost(Guid id)
     {
-        return await _context.ForumPost.AnyAsync(id);
+        return await _context.ForumPosts.AnyAsync(id);
     }
 }

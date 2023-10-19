@@ -3,7 +3,7 @@ using LibraryApp.DTOs;
 using LibraryApp.Entities;
 using Microsoft.AspNetCore.Mvc;
 
-namespace LibraryApp.Controllers.Forum;
+namespace LibraryApp.Controllers.ForumControllers;
 
 public class AddForumPostController : BaseApiController
 {
@@ -19,7 +19,7 @@ public class AddForumPostController : BaseApiController
     {
         var entity = new ForumPost(forumPostDto.Title, forumPostDto.Body, forumPostDto.Author);
 
-        await _context.ForumPost.AddAsync(entity);
+        await _context.ForumPosts.AddAsync(entity);
         await _context.SaveChangesAsync();
 
         return Ok(true);
