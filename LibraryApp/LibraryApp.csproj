@@ -7,6 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="Divergic.Logging.Xunit" Version="4.2.0" />
       <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.12" />
       <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.12" />
       <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="7.0.12" />
@@ -20,6 +21,7 @@
       </PackageReference>
       <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.12" />
       <PackageReference Include="Microsoft.Extensions.Http" Version="7.0.0" />
+      <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.2" />
       <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
       <PackageReference Include="NuGet.Frameworks" Version="6.7.0" />
       <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.0.2" />
@@ -51,7 +53,10 @@
     <PropertyGroup>
         <SpaRoot>ClientApp\</SpaRoot>
     </PropertyGroup>
-
+    <PropertyGroup>
+        <PreserveCompilationContext>true</PreserveCompilationContext>
+    </PropertyGroup>
+    
     <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
         <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
         <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
@@ -67,6 +72,8 @@
             </ResolvedFileToPublish>
         </ItemGroup>
     </Target>
+    
+    
     
     
 

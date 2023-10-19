@@ -18,14 +18,26 @@ namespace LibraryApp.Controllers.BookControllers
         [HttpPost("AddBook")]
         public async Task<ActionResult<Book>> AddBook(BookDto bookDto)
         {
-            if (await BookExists(bookDto.ISBN)) return BadRequest("Book is already in the database");
-
+            if (await BookExists(bookDto.ISBN)) return Conflict("Book is already in the database");
             var book = new Book(bookDto.Title, bookDto.Author, bookDto.ISBN, bookDto.Genre, bookDto.Description,
                 bookDto.Available);
-
-            return book;
-
+            await _context.Book.AddAsync(book);
+            await _context.SaveChangesAsync();
+            return CreatedAtAction(nameof(GetBook), new { id = book.ISBN }, book);
         }
+    
+        public async Task<ActionResult<Book>> GetBook(string id)
+        {
+            var book = await _context.Book.FindAsync(id);
+
+            if (book == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(book);
+        }
+    
         private async Task<bool> BookExists(string isbn)
         {
             return await _context.Book.AnyAsync(x => x.ISBN == isbn);

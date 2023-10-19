@@ -5,18 +5,21 @@ namespace LibraryApp.DTOs
     public class BookDto
     {
         [Required]
-        public string Title;
+        public string Title { get; init; }
         [Required]
-        public string Author;
+        public string Author { get; init; }
         [Key]
-        public string ISBN;
+        public string ISBN { get; init; }
         [Required]
-        public string Genre;
+        public string Genre { get; init; }
         [Required]
-        public string Description;
+        public string Description { get; init; }
         [Required]
-        public bool Available;
+        public bool Available { get; init; }
 
         public DateTime Date;
+        
+        
+        
     }
 }
