@@ -15,10 +15,11 @@ public class DislikePostController : BaseApiController
     }
 
     [HttpPut("/addDislike")]
-    public async Task<ActionResult<int>> DislikePost(DislikePostDto dislikePostDto)
+    public async Task<ActionResult<int>> DislikePost(Like_DislikePostDto likeDislikePostDto)
     {
+        if (await FindPost(likeDislikePostDto.id)) return BadRequest("There is no post with this ID");
 
-        var entity = await _context.ForumPost.FindAsync(dislikePostDto.id);
+        var entity = await _context.ForumPost.FindAsync(likeDislikePostDto.id);
         if (entity != null)
         {
             entity.Dislikes++;
@@ -33,7 +34,7 @@ public class DislikePostController : BaseApiController
         return Ok(entity.Dislikes);
     }
 
-    private async Task<bool> FindPost(Guid id)
+    private async Task<ActionResult<bool>> FindPost(Guid id)
     {
         return await _context.ForumPost.AnyAsync(id);
     }

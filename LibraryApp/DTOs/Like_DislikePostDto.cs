@@ -1,6 +1,6 @@
 namespace LibraryApp.DTOs;
 
-public class DislikePostDto
+public class Like_DislikePostDto
 {
     public Guid id;
 }
