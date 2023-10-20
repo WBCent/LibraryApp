@@ -21,5 +21,6 @@ namespace LibraryApp.Data
         public required DbSet<ForumPost> ForumPosts { get; set; }
         public required DbSet<BookReview> BookReviews { get; set; }
         public required DbSet<LibraryRoom> LibraryRooms { get; set; }
+        public required DbSet<LibraryRoomBooking> LibraryRoomBookings { get; set; }
     };
 }
